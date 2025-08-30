@@ -11,7 +11,7 @@ from queue import Queue
 # --- CONFIGURATION ---
 API_URL = 'https://backend.rtechnology.in/api/finish-reading/'
 NUMBER_OF_THREADS = 10
-REFIDS = []  # List of refids, populated below
+REFIDS = []
 
 class TermuxColors:
     RESET = '\033[0m'
@@ -59,7 +59,6 @@ def main():
     if refids_input:
         REFIDS = refids_input.split(',')
     else:
-        # Fallback: read from a file or prompt (for local testing)
         try:
             with open('refids.txt', 'r') as f:
                 REFIDS = [line.strip() for line in f if line.strip()]
